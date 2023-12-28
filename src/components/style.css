@@ -1,0 +1,202 @@
+header {
+    background-color: var(--White);
+    padding: 0.7rem 0 0.7rem 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    /* background-color: aqua; */
+  }
+  .headcontent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: aqua; */
+  }
+  header h1 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    /* padding: 1rem 0 1rem 0; */
+  }
+  header p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .mode {
+    /* background-color: aqua; */
+    display: flex;
+    gap: 0.5rem;
+  }
+  .icon i {
+    /* background-color: beige; */
+    transform: rotate(-30deg);
+    font-size: 0.8rem;
+    /* margin-top: -5rem; */
+  }
+  .bodyContent{
+    background-color: var(--Very_Light_Gray);
+    /* background-color: antiquewhite; */
+    height: 100vh;
+  }
+
+  section form {
+    /* background-color: aqua; */
+    margin: 1.2rem 0 1rem 0;
+    border-radius: var(--box_borderRadius);
+  }
+  
+  section input {
+    border: none;
+    outline: none;
+    background-image: url("./images/icon-magnifying-glass-grey.svg");
+    background-position: 30px 14px;
+    background-repeat: no-repeat;
+    padding: 1rem 0 1rem 5rem;
+    color: var(--Dark_Gray);
+    border-radius: var(--box_borderRadius);
+    width: 73%;
+    background-color: var(--White);
+    box-shadow: var(--boxShadow);
+  }
+  .searchWhite::placeholder {
+    color: var(--Dark_Gray);
+  }
+  .searchBlack::placeholder {
+    color: var(--White);
+  }
+  
+  .dropdown{
+    padding-right: 1rem;
+    background-color: var(--White);
+    box-shadow: var(--boxShadow);
+    border-radius: var(--box_borderRadius);
+    margin: 2rem 0 0.5rem 0;
+    /* background-color: aqua; */
+    width: 12rem;
+  }
+  
+  select {
+    border: none;
+    outline: none;
+    background-color: var(--White);
+    padding: 1rem; cursor: pointer;
+    width: 12rem;
+    font-size: 0.8rem;
+  }
+  
+  select option {
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+    background-color: var(--White);
+    /* background-color: palegoldenrod; */
+  }
+  
+  .countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    /* background-color: aqua; */
+  }
+
+  .countryBox {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    background-color: var(--White);
+    /* background-color: aqua; */
+    border-radius: var(--box_borderRadius);
+    width: 290px;
+    margin-top: 1.8rem;
+  }
+  .countryBox img {
+    width: 290px;
+    height: 180px;
+    border-top-right-radius: var(--box_borderRadius);
+    border-top-left-radius: var(--box_borderRadius);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  
+  .databox {
+    padding: 1.4rem;
+    /* background-color: aqua; */
+  }
+  .countryBox h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    /* background-color: aqua; */
+    /* margin-top: 0.5rem; */
+    margin-bottom: 1rem;
+  }
+  
+  .countryBox p {
+    /* background-color: aqua; */
+    margin: 0;
+    margin-top: 0.4rem;
+  }
+  
+  .countryBox p span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+  }
+  
+  
+  
+  @media (min-width: 768px){
+    .box {
+        margin: 0 5% 1% 5%;
+        width: 90%;
+        /* background-color: aqua; */
+      }
+    header{
+      padding-top: 1rem;
+      
+    }
+      header h1 {
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+      header p {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      .icon i {
+        font-size: 1.2rem;
+      }
+
+      .find {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      section form {
+        width: 30%;
+      }
+      section input {
+        padding: 1.3rem 0.7rem 1.3rem 5rem;
+        background-position: 30px 20px;
+        background-size: 1.2rem;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .dropdown{
+        margin: 0;
+      }
+      select{
+        padding: 1.3rem;
+      }
+      select,
+      select option {
+        font-size: 1.1rem;
+      }
+    
+    
+      .countries {
+        gap: 1.5rem;
+        justify-content: flex-start;
+      }
+
+      .countryBox{
+        margin-left :auto;
+        margin-right: auto;
+      }
+  }

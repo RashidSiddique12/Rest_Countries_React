@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--Very_Dark_Blue);
+}
+
+:root {
+  --Dark_Blue: hsl(209, 23%, 22%);
+  --Very_Dark_Blue: hsl(207, 26%, 17%);
+  --Very_Dark_Blue: hsl(200, 15%, 8%);
+  --Dark_Gray: hsl(0, 0%, 52%);
+  --Very_Light_Gray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+  --box_borderRadius: 6px;
+  --boxShadow: rgba(152, 152, 157, 0.05) 0px 1px 0px,
+    rgba(151, 151, 157, 0.1) 0px 0px 8px;
+}
