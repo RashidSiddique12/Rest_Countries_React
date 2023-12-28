@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Country from "./Country";
 import "./style.css";
+import { HashLoader, PropagateLoader, RingLoader } from "react-spinners";
 
 function BodyContent() {
   const [countries, setCountries] = useState([]);
@@ -69,7 +70,9 @@ function BodyContent() {
         {loading === true ? (
           <Country filterCountries={filterCountries} />
         ) : (
-          <p>Loading...</p>
+          <div className="handler">
+            <PropagateLoader  size={25} />
+          </div>
         )}
       </section>
     </div>
