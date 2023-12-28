@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Country from "./Country";
 import "./style.css";
-import { HashLoader, PropagateLoader, RingLoader } from "react-spinners";
+import { PropagateLoader } from "react-spinners";
 
 function BodyContent() {
   const [countries, setCountries] = useState([]);
@@ -34,14 +34,14 @@ function BodyContent() {
     const countryName = country.name.common.toLowerCase();
     const countryRegion = country.region;
     return (
-      countryName.includes(userInput) &&
+      countryName.includes(userInput.toLowerCase()) &&
       (countryRegion === filterInput || filterInput === "Filter by Region")
     );
   });
 
   return (
     <div className="bodyContent">
-      <section className="box bodyContent">
+      <section className="box">
         <div className="find">
           <form>
             <input
