@@ -34,7 +34,7 @@ function BodyContent() {
     const countryName = country.name.common.toLowerCase();
     const countryRegion = country.region;
     return (
-      countryName.includes(userInput.toLowerCase()) &&
+      countryName.includes(userInput.toLowerCase().trim()) &&
       (countryRegion === filterInput || filterInput === "Filter by Region")
     );
   });
