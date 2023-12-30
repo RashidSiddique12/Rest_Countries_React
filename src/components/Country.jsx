@@ -1,4 +1,4 @@
-import "./style.css";
+import notFound from '../assets/location-not-found.svg';
 import PropTypes from "prop-types";
 
 function Country({ filterCountries }) {
@@ -11,7 +11,7 @@ function Country({ filterCountries }) {
       {filterCountries.length > 0 ? (
         <div className="countries">
           {filterCountries.map(
-            ({ name, flags, population, region, capital }, index) => (
+            ({ name, flags, population, region,subregion, capital, area }, index) => (
               <div className="countryBox" key={index}>
                 <img src={flags.png} alt={`Flag of ${name.common}`} />
                 <div className="databox">
@@ -25,8 +25,16 @@ function Country({ filterCountries }) {
                     {region}
                   </p>
                   <p>
+                    <span>SubRegion: </span>
+                    {subregion}
+                  </p>
+                  <p>
                     <span>Capital: </span>
                     {capital}
+                  </p>
+                  <p>
+                    <span>Area: </span>
+                    {area.toLocaleString()}
                   </p>
                 </div>
               </div>
@@ -35,7 +43,8 @@ function Country({ filterCountries }) {
         </div>
       ) : (
         <div className="handler">
-          <p>This Country is not in the lists</p>
+          <img src={notFound} alt="" />
+          <p>No such countries found!!</p>
         </div>
       )}
     </>

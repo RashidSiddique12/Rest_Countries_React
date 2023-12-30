@@ -54,7 +54,7 @@ section input {
   padding: 1rem 0 1rem 5rem;
   color: var(--Dark_Gray);
   border-radius: var(--box_borderRadius);
-  width: 73%;
+  width: 75%;
   background-color: var(--White);
   box-shadow: var(--boxShadow);
 }
@@ -70,19 +70,16 @@ section input {
   background-color: var(--White);
   box-shadow: var(--boxShadow);
   border-radius: var(--box_borderRadius);
-  margin: 2rem 0 0.5rem 0;
-  /* background-color: aqua; */
-  width: 12rem;
+  margin: 2rem auto 0.5rem auto;
 }
 
 select {
   border: none;
   outline: none;
   background-color: var(--White);
-  padding: 1rem;
+  border-radius: var(--box_borderRadius);
+  padding: 1.1rem;
   cursor: pointer;
-  width: 12rem;
-  /* font-size: 5rem; */
 }
 
 select option {
@@ -144,15 +141,26 @@ select option {
 }
 
 .handler {
-  height: 50vh;
+  height: 60vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+ 
 }
 
+.handler img{
+  width: 70%;
+  margin: auto;
+
+}
 .handler p {
   font-size: 1.3rem;
+  margin: auto;
 }
+
+
 
 @media (min-width: 768px) {
   .box {
@@ -178,10 +186,12 @@ select option {
   .find {
     display: flex;
     justify-content: space-between;
+    /* gap: rem; */
     align-items: center;
+    /* background-color: aqua; */
   }
   section form {
-    width: 30%;
+    width: 20%;
   }
   section input {
     padding: 1.3rem 0.7rem 1.3rem 5rem;
@@ -194,7 +204,7 @@ select option {
     margin: 0;
   }
   select {
-    padding: 1.3rem;
+    padding: 1.2rem;
   }
   select,
   select option {
@@ -214,6 +224,13 @@ select option {
   .handler p {
     font-size: 2rem;
   }
+  .handler img{
+    width: 30%;
+    margin: auto;
+  
+  }
+  
+  
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
