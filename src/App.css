@@ -1,3 +1,19 @@
-.App{
+
+.whiteGrey{
   background-color: var(--Very_Light_Gray);
+  color: var(--Very_Dark_Blue);
 }
+.white{
+  background-color: var(--white);
+  /* background-color: pink; */
+}
+.dark{
+  background-color: var(--Very_Dark_Blue);
+  color: white;
+}
+.darkGrey{
+  background-color: var(--Dark_Blue);
+  color: white;
+  /* background-color: yellow; */
+}
+

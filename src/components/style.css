@@ -1,11 +1,11 @@
+
 .box {
   margin: 1.2rem;
-  /* border : 1px solid black; */
   width: 90%;
+  margin-bottom: 0;
 }
 
 header {
-  background-color: var(--White);
   padding: 0.7rem 0 0.7rem 0;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   /* background-color: aqua; */
@@ -15,6 +15,7 @@ header {
   align-items: center;
   justify-content: space-between;
   /* background-color: aqua; */
+  padding-bottom: 1.1rem;
 }
 header h1 {
   font-size: 1.1rem;
@@ -52,22 +53,23 @@ section input {
   background-position: 30px 14px;
   background-repeat: no-repeat;
   padding: 1rem 0 1rem 5rem;
-  color: var(--Dark_Gray);
   border-radius: var(--box_borderRadius);
   width: 75%;
-  background-color: var(--White);
   box-shadow: var(--boxShadow);
 }
-.searchWhite::placeholder {
+
+#darkGrey{
+  background-image: url('../assets/icon-magnifying-glass-white.svg');
+}
+#white::placeholder {
   color: var(--Dark_Gray);
 }
-.searchBlack::placeholder {
+#darkGrey::placeholder {
   color: var(--White);
 }
 
 .dropdown {
   padding-right: 1rem;
-  background-color: var(--White);
   box-shadow: var(--boxShadow);
   border-radius: var(--box_borderRadius);
   margin: 2rem auto 0.5rem auto;
@@ -76,17 +78,17 @@ section input {
 select {
   border: none;
   outline: none;
-  background-color: var(--White);
   border-radius: var(--box_borderRadius);
   padding: 1.1rem;
   cursor: pointer;
+
 }
 
 select option {
   border: none;
   outline: none;
   /* font-size: 5rem; */
-  background-color: var(--White);
+  /* background-color: var(--White); */
   /* background-color: palegoldenrod; */
 }
 
@@ -101,7 +103,6 @@ select option {
 .countryBox {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  background-color: var(--White);
   /* background-color: aqua; */
   border-radius: var(--box_borderRadius);
   width: 290px;
@@ -141,30 +142,29 @@ select option {
 }
 
 .handler {
-  height: 60vh;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
- 
 }
 
 .handler img{
   width: 70%;
-  margin: auto;
+  /* margin: auto; */
 
 }
 .handler p {
   font-size: 1.3rem;
-  margin: auto;
+  margin-top: 2rem;
 }
 
 
 
 @media (min-width: 768px) {
   .box {
-    margin: 1.2% 5% 1.2% 5%;
+    margin: 1.2% 5% 0% 5%;
     width: 90%;
     /* background-color: aqua; */
   }
@@ -186,12 +186,14 @@ select option {
   .find {
     display: flex;
     justify-content: space-between;
-    /* gap: rem; */
     align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     /* background-color: aqua; */
   }
   section form {
-    width: 20%;
+    /* width: 140%; */
+    margin-right:7rem ;
   }
   section input {
     padding: 1.3rem 0.7rem 1.3rem 5rem;
@@ -205,6 +207,7 @@ select option {
   }
   select {
     padding: 1.2rem;
+    width: 15rem;
   }
   select,
   select option {
@@ -223,10 +226,11 @@ select option {
 
   .handler p {
     font-size: 2rem;
+    margin-top: 2rem;
   }
   .handler img{
     width: 30%;
-    margin: auto;
+    margin-bottom: 0;
   
   }
   

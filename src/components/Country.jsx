@@ -1,18 +1,23 @@
+import { useContext } from 'react';
 import notFound from '../assets/location-not-found.svg';
 import PropTypes from "prop-types";
+import { ThemeContext } from '../context/Theme';
 
 function Country({ filterCountries }) {
   // Prop types validation
   Country.propTypes = {
     filterCountries: PropTypes.array.isRequired,
   };
+  const {elementMode} = useContext(ThemeContext);
+  console.log(elementMode);
   return (
     <>
+    {/* "countryBox" */}
       {filterCountries.length > 0 ? (
         <div className="countries">
           {filterCountries.map(
             ({ name, flags, population, region,subregion, capital, area }, index) => (
-              <div className="countryBox" key={index}>
+              <div className={`countryBox ${elementMode}`} key={index}>
                 <img src={flags.png} alt={`Flag of ${name.common}`} />
                 <div className="databox">
                   <h4>{name.common}</h4>

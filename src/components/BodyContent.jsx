@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Country from "./Country";
 import { PropagateLoader } from "react-spinners";
 import Dropdown from "./Dropdown";
+import { ThemeContext } from "../context/Theme";
 
 function BodyContent() {
   const [countries, setCountries] = useState([]);
@@ -10,6 +11,8 @@ function BodyContent() {
   const [filterSubRegion, setfilterSubRegion] = useState("Filter by SubRegion");
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState();
+  const {elementMode} = useContext(ThemeContext);
+  console.log(elementMode);
 
   useEffect(() => {
     fetch(
@@ -72,16 +75,19 @@ function BodyContent() {
     <div className="bodyContent">
       <section className="box">
         <div className="find">
-          <form>
+          <div>
+          <form >
             <input
               type="text"
               value={userInput}
-              id="search"
-              className="searchWhite"
+              id={elementMode}
+              // className="searchWhite white"
+              className={elementMode}
               placeholder="Search for a country..."
               onChange={(e) => setUserInput(e.target.value)}
             />
           </form>
+          </div>
           <Dropdown title="Region" arr={regionArr} set={setfilterRegion} />
           <Dropdown
             title="SubRegion"
