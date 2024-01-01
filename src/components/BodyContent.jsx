@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Country from "./Country";
 import { PropagateLoader } from "react-spinners";
 import Dropdown from "./Dropdown";
-import { ThemeContext } from "../context/Theme";
+import useTheme from "../context/Theme";
 
 function BodyContent() {
   const [countries, setCountries] = useState([]);
@@ -11,17 +11,15 @@ function BodyContent() {
   const [filterSubRegion, setfilterSubRegion] = useState("Filter by SubRegion");
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState();
-  const {elementMode} = useContext(ThemeContext);
-  console.log(elementMode);
+  const { elementMode } = useTheme();
 
   useEffect(() => {
-    fetch(
-      "https://restcountries.com/v3.1/all?fields=name,flags,capital,population,region,subregion,area"
-    )
+    fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((res) => {
         setCountries(res);
         setLoading(false);
+        // console.log(res[0])
       })
       .catch((error) => {
         console.log(error);
@@ -64,8 +62,7 @@ function BodyContent() {
     filterCountries.sort((a, b) => a["population"] - b["population"]);
   } else if (sort === "Population in Descending") {
     filterCountries.sort((a, b) => b["population"] - a["population"]);
-  }
-  else if (sort === "Area in Ascending") {
+  } else if (sort === "Area in Ascending") {
     filterCountries.sort((a, b) => a["area"] - b["area"]);
   } else if (sort === "Area in Descending") {
     filterCountries.sort((a, b) => b["area"] - a["area"]);
@@ -76,38 +73,40 @@ function BodyContent() {
       <section className="box">
         <div className="find">
           <div>
-          <form >
-            <input
-              type="text"
-              value={userInput}
-              id={elementMode}
-              // className="searchWhite white"
-              className={elementMode}
-              placeholder="Search for a country..."
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-          </form>
+            <form>
+              <input
+                type="text"
+                value={userInput}
+                id={elementMode}
+                // className="searchWhite white"
+                className={elementMode}
+                placeholder="Search for a country..."
+                onChange={(e) => setUserInput(e.target.value)}
+              />
+            </form>
           </div>
-          <Dropdown title="Region" arr={regionArr} set={setfilterRegion} />
+          <Dropdown
+            title="Region"
+            arr={regionArr}
+            set={setfilterRegion}
+            setfilterSubRegion={setfilterSubRegion}
+          />
           <Dropdown
             title="SubRegion"
             arr={subregionArr}
             set={setfilterSubRegion}
           />
-           <Dropdown
+          <Dropdown
             title="Sorting"
-            arr={["Population in Ascending", "Population in Descending", "Area in Ascending", "Area in Descending"]}
+            arr={[
+              "Population in Ascending",
+              "Population in Descending",
+              "Area in Ascending",
+              "Area in Descending",
+            ]}
             set={setSort}
           />
         </div>
-        {/* sorting */}
-        {/* <div className="sorting">
-          <Dropdown
-            title="Sorting"
-            arr={["Population in Ascending", "Population in Descending", "Area in Ascending", "Area in Descending"]}
-            set={setSort}
-          />
-        </div> */}
         {loading === true ? (
           <div className="handler">
             <PropagateLoader size={25} />

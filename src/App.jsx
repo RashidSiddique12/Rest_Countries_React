@@ -2,22 +2,23 @@ import "./App.css";
 import "./components/style.css";
 import Header from "./components/Header";
 import BodyContent from "./components/BodyContent";
-// import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "./context/Theme.js";
-import { useState } from "react";
+import useTheme from "./context/Theme";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CountryDetails from "./components/CountryDetails";
 
 function App() {
-  
-  const[backgroundMode, setBackgroundMode] = useState("whiteGrey");
-  const[elementMode, setElementMode] = useState("white")
+  const { backgroundMode } = useTheme();
 
   return (
-    <ThemeContext.Provider value={{backgroundMode, setBackgroundMode,elementMode,setElementMode}}>
-      <div className={backgroundMode}>
+    <div className={backgroundMode}>
+      <BrowserRouter>
         <Header />
-        <BodyContent />
-      </div>
-    </ThemeContext.Provider>
+        <Routes>
+          <Route path="/" element={<BodyContent />} />
+          <Route path='/detail/:id' element={<CountryDetails/>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

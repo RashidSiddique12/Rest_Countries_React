@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+}
 
 .box {
   margin: 1.2rem;
@@ -7,7 +13,7 @@
 
 header {
   padding: 0.7rem 0 0.7rem 0;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  box-shadow: var(--boxShadow);
   /* background-color: aqua; */
 }
 .headcontent {
@@ -45,6 +51,7 @@ section form {
   /* background-color: aqua; */
   margin: 1.2rem 0 1rem 0;
   border-radius: var(--box_borderRadius);
+  width: 75vw;
 }
 section input {
   border: none;
@@ -54,7 +61,7 @@ section input {
   background-repeat: no-repeat;
   padding: 1rem 0 1rem 5rem;
   border-radius: var(--box_borderRadius);
-  width: 75%;
+  width: 85%;
   box-shadow: var(--boxShadow);
 }
 
@@ -72,7 +79,10 @@ section input {
   padding-right: 1rem;
   box-shadow: var(--boxShadow);
   border-radius: var(--box_borderRadius);
-  margin: 2rem auto 0.5rem auto;
+  margin: 2rem auto 0.5rem 0;
+  /* background-color: aqua; */
+  width: 75vw;
+
 }
 
 select {
@@ -81,7 +91,6 @@ select {
   border-radius: var(--box_borderRadius);
   padding: 1.1rem;
   cursor: pointer;
-
 }
 
 select option {
@@ -101,8 +110,7 @@ select option {
 }
 
 .countryBox {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow:var(--boxShadow);
   /* background-color: aqua; */
   border-radius: var(--box_borderRadius);
   width: 290px;
@@ -192,22 +200,23 @@ select option {
     /* background-color: aqua; */
   }
   section form {
-    /* width: 140%; */
-    margin-right:7rem ;
+    width: 31vw;
+    /* width: ; */
+    margin-right:2rem ;
   }
   section input {
     padding: 1.3rem 0.7rem 1.3rem 5rem;
     background-position: 30px 20px;
     background-size: 1.2rem;
     font-size: 1rem;
-    width: 100%;
+    /* width: 120%; */
   }
   .dropdown {
     margin: 0;
+    max-width: 16rem;
   }
   select {
     padding: 1.2rem;
-    width: 15rem;
   }
   select,
   select option {
