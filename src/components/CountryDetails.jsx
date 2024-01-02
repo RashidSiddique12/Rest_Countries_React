@@ -7,7 +7,7 @@ import { PropagateLoader } from "react-spinners";
 
 function CountryDetails() {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const { elementMode } = useTheme();
   const [country, setCountry] = useState();
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,8 @@ function CountryDetails() {
         setErrorMessage("404! something went wrong");
       })
       .finally(() => setLoading(false));
-  }, []);
+      console.log("useEffe");
+  }, [id]);
 
   return errorMessage !== null ? (
     <div className="handler">
@@ -36,7 +37,7 @@ function CountryDetails() {
   ) : (
     <div className="detailBox">
       <Link to="/">
-        <button className={`btn ${elementMode}`}>
+        <button className={`btn backBtn ${elementMode}`}>
           <span>
             <i className="fa-solid fa-arrow-left-long fa-lg"></i>
           </span>
@@ -107,7 +108,7 @@ function CountryDetails() {
               {country.borders &&
                 country.borders.map((border) => (
                   // eslint-disable-next-line react/jsx-key
-                  <button className={`btn ${elementMode}`}>{border}</button>
+                  <Link to={`/detail/${border}`}><button className={`btn ${elementMode}`}>{border}</button></Link>
                 ))}
             </div>
           </div>
