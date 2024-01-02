@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useTheme from "../context/Theme";
 import "./countryDetails.css";
-import ErrorImg from "../assets/404-error.svg";
 import { PropagateLoader } from "react-spinners";
+import PageNotFound from "./PageNotFound";
 
 function CountryDetails() {
   const { id } = useParams();
@@ -19,21 +19,22 @@ function CountryDetails() {
         return res.json();
       })
       .then((res) => {
-        setCountry(res[0]);
+        if (res.message === undefined) {
+          setCountry(res[0]);
+        } else {
+          setErrorMessage(res.message);
+        }
       })
       .catch((error) => {
         console.log(error);
         setErrorMessage("404! something went wrong");
       })
       .finally(() => setLoading(false));
-      console.log("useEffe");
+    console.log("useEffe");
   }, [id]);
 
   return errorMessage !== null ? (
-    <div className="handler">
-      <img src={ErrorImg} alt="Not found Error image" />
-      <p>{errorMessage}</p>
-    </div>
+    <PageNotFound message={errorMessage}></PageNotFound>
   ) : (
     <div className="detailBox">
       <Link to="/">
@@ -47,7 +48,10 @@ function CountryDetails() {
       </Link>
       {loading ? (
         <div className="handler">
-          <PropagateLoader size={25} color={elementMode==="white" ? "black" : "white"} />
+          <PropagateLoader
+            size={25}
+            color={elementMode === "white" ? "black" : "white"}
+          />
         </div>
       ) : (
         <div className="countryDetails">
@@ -108,7 +112,9 @@ function CountryDetails() {
               {country.borders &&
                 country.borders.map((border) => (
                   // eslint-disable-next-line react/jsx-key
-                  <Link to={`/detail/${border}`}><button className={`btn ${elementMode}`}>{border}</button></Link>
+                  <Link to={`/detail/${border}`}>
+                    <button className={`btn ${elementMode}`}>{border}</button>
+                  </Link>
                 ))}
             </div>
           </div>

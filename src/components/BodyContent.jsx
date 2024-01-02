@@ -79,7 +79,7 @@ function BodyContent() {
       <section className="box">
         <div className="find">
           <div>
-            <form>
+            <form onSubmit={(e)=>(e.preventDefault())}>
               <input
                 type="text"
                 value={userInput}

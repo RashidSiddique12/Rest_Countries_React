@@ -5,6 +5,7 @@ import BodyContent from "./components/BodyContent";
 import useTheme from "./context/Theme";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CountryDetails from "./components/CountryDetails";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const { backgroundMode } = useTheme();
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<BodyContent />} />
           <Route path='/detail/:id' element={<CountryDetails/>} />
+          <Route path="*" element={<PageNotFound message={"Page Not Found"}/>} />
         </Routes>
       </BrowserRouter>
     </div>
