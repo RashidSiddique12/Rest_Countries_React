@@ -10,7 +10,7 @@ function App() {
   const { backgroundMode } = useTheme();
 
   return (
-    <div className={backgroundMode}>
+    <div className={`${backgroundMode} App`}>
       <BrowserRouter>
         <Header />
         <Routes>

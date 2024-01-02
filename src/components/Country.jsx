@@ -16,9 +16,9 @@ function Country({ filterCountries }) {
       {filterCountries.length > 0 ? (
         <div className="countries">
           {filterCountries.map(
-            ({ name, flags, population, region,subregion, capital, area,tld }, index) => (
+            ({ name, flags, population, region, capital,cca3 }, index) => (
               <div className={`countryBox ${elementMode}`} key={index}>
-                <Link to={`/detail/${tld}`}  key={index} style={{textDecoration:"none",color: 'inherit'}}>
+                <Link to={`/detail/${cca3}`}  key={index} style={{textDecoration:"none",color: 'inherit'}}>
                 <img src={flags.png} alt={`Flag of ${name.common}`} />
                 <div className="databox">
                   <h4>{name.common}</h4>
@@ -30,18 +30,10 @@ function Country({ filterCountries }) {
                     <span>Region: </span>
                     {region}
                   </p>
-                  {/* <p>
-                    <span>SubRegion: </span>
-                    {subregion}
-                  </p> */}
                   <p>
                     <span>Capital: </span>
                     {capital}
                   </p>
-                  {/* <p>
-                    <span>Area: </span>
-                    {area.toLocaleString()}
-                  </p> */}
                 </div>
               </Link>
               </div>

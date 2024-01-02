@@ -1,4 +1,6 @@
-
+.App{
+  min-height: 100vh;
+}
 .whiteGrey{
   background-color: var(--Very_Light_Gray);
   color: var(--Very_Dark_Blue);

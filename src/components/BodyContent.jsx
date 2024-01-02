@@ -3,6 +3,7 @@ import Country from "./Country";
 import { PropagateLoader } from "react-spinners";
 import Dropdown from "./Dropdown";
 import useTheme from "../context/Theme";
+import ErrorImg from "../assets/404-error.svg";
 
 function BodyContent() {
   const [countries, setCountries] = useState([]);
@@ -11,6 +12,7 @@ function BodyContent() {
   const [filterSubRegion, setfilterSubRegion] = useState("Filter by SubRegion");
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState();
+  const [errorMessage, setErrorMessage] = useState(null);
   const { elementMode } = useTheme();
 
   useEffect(() => {
@@ -18,13 +20,12 @@ function BodyContent() {
       .then((res) => res.json())
       .then((res) => {
         setCountries(res);
-        setLoading(false);
-        // console.log(res[0])
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
-      });
+        setErrorMessage("404! something went wrong");
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const regionArr = countries.reduce((acc, country) => {
@@ -68,7 +69,12 @@ function BodyContent() {
     filterCountries.sort((a, b) => b["area"] - a["area"]);
   }
 
-  return (
+  return errorMessage !== null ? (
+    <div className="handler">
+      <img src={ErrorImg} alt="Not found Error image" />
+      <p>{errorMessage}</p>
+    </div>
+  ) : (
     <div className="bodyContent">
       <section className="box">
         <div className="find">
@@ -78,7 +84,6 @@ function BodyContent() {
                 type="text"
                 value={userInput}
                 id={elementMode}
-                // className="searchWhite white"
                 className={elementMode}
                 placeholder="Search for a country..."
                 onChange={(e) => setUserInput(e.target.value)}
@@ -109,7 +114,7 @@ function BodyContent() {
         </div>
         {loading === true ? (
           <div className="handler">
-            <PropagateLoader size={25} />
+            <PropagateLoader size={25} color={elementMode==="white" ? "black" : "white"}/>
           </div>
         ) : (
           <Country filterCountries={filterCountries} />
