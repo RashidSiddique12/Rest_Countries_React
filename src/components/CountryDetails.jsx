@@ -67,7 +67,7 @@ function CountryDetails() {
                 <p>
                   <span>Native Name: </span>
                   {
-                    country.name.nativeName[
+                   country.name.nativeName && country.name.nativeName[
                       Object.keys(country.name.nativeName)[0]
                     ].common
                   }
@@ -96,11 +96,11 @@ function CountryDetails() {
                 </p>
                 <p>
                   <span>Currencies: </span>
-                  {country.currencies[Object.keys(country.currencies)[0]].name}
+                  { country.currencies && country.currencies[Object.keys(country.currencies)[0]].name}
                 </p>
                 <p>
                   <span>Languages: </span>
-                  {Object.keys(country.languages).map((lan) => {
+                  {country.languages && Object.keys(country.languages).map((lan) => {
                     // eslint-disable-next-line react/jsx-key
                     return <>{country.languages[lan] + " "}</>;
                   })}
